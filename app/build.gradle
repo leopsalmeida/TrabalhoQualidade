@@ -1,0 +1,49 @@
+apply plugin: 'com.android.application'
+
+android
+{
+    compileSdkVersion 22
+    buildToolsVersion "22.0.1"
+
+    defaultConfig
+    {
+        applicationId "trabalhofinal.qualidade.una.com.trabalhoqualidade"
+        minSdkVersion 16
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes
+    {
+        release
+        {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    productFlavors
+    {
+        free
+        {
+            applicationId "trabalhofinal.qualidade.una.com.trabalhoqualidade.free"
+        }
+
+        paid
+        {
+            applicationId "trabalhofinal.qualidade.una.com.trabalhoqualidade.paid"
+        }
+    }
+
+}
+
+dependencies
+{
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:appcompat-v7:22.2.0'
+    compile project(':citacoes')
+    freeCompile 'com.google.android.gms:play-services-ads:7.0.0'
+    compile project(':exibecitacoes')
+    testCompile 'junit:junit:4.12'
+}
